@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import pickle
 
-model = pickle.load(open("model.pkl","rb"))
+model = pickle.load(open("models/model.pkl","rb"))
 
 #Flask app
 
@@ -19,9 +19,6 @@ def predict():
 
 
 
-
-
-
 #main driver function
-if __name___ == "__main__":
+if __name__ == "__main__":
     app.run(debug=True)
