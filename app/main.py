@@ -15,9 +15,13 @@ def index():
 
 @app.route("/predict", methods=['POST'])
 def predict():
-    pass
+    features = request.form['feature']
+    features_list = features.split(',')
+    np_features = np.array(features_list, dtype=np.float32)
+    prediction = model.predict(np_features.reshape(1,-1))
 
-
+    output = ["CANCEROUS" if prediction[0] == 1 else "NON-CANCEROUS"]
+    return render_template('index.html', message = output)
 
 #main driver function
 if __name__ == "__main__":
